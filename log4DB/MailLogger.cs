@@ -48,11 +48,11 @@ namespace log4DB
                 SqlException sqlEx = ex as SqlException;
                 if (sqlEx != null)
                 {
-                    LogSqlErrors("++++++++++++++++++++++++++++ SQL SERVER EXCEPTION ++++++++++++++++++++++++++++++++++++++++++++" + DateTime.Now.ToString() + Environment.NewLine + ex.Message, sqlEx.Errors);
+                    LogSqlErrors("+++++++ SQL SERVER EXCEPTION +++++++" + DateTime.Now.ToString() + Environment.NewLine + ex.Message + ex.StackTrace, sqlEx.Errors);
                 }
                 else
                 {
-                    LogApplicationError("++++++++++++++++++++++++++++ APPLICATION EXCEPTION ++++++++++++++++++++++++++++++++++++++++++++" + DateTime.Now.ToString() + "\r\n" + "Message : " + ex.Message + Environment.NewLine + "Source : " + ex.Source + Environment.NewLine + "StackTrace : " + ex.StackTrace + Environment.NewLine + "Inner Exception : " + ex.InnerException + Environment.NewLine + Environment.NewLine);
+                    LogApplicationError("+++++++ APPLICATION EXCEPTION +++++++" + DateTime.Now.ToString() + "\r\n" + "Message : " + ex.Message + Environment.NewLine + "Source : " + ex.Source + Environment.NewLine + "StackTrace : " + ex.StackTrace + Environment.NewLine + "Inner Exception : " + ex.InnerException + Environment.NewLine + Environment.NewLine);
                 }
                 #endregion
             }

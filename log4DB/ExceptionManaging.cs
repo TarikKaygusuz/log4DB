@@ -14,7 +14,7 @@ namespace log4DB
             try
             {
                 i = new IO();
-                i.AppendtoText("SmtpMailErrors.txt", "+++++++++++++++ log4DB - +++++++++++++++" + DateTime.Now.ToString() + "\r\n" + "Message : " + ex.Message + Environment.NewLine + "Source : " + ex.Source + Environment.NewLine + "StackTrace : " + ex.StackTrace + Environment.NewLine + "Inner Exception : " + ex.InnerException + Environment.NewLine + Environment.NewLine + "Log verisi mail olarak gönderilemedi." + Environment.NewLine + Environment.NewLine);
+                i.AppendtoText("SmtpMailErrors.txt", "+++++++ log4DB +++++++" + DateTime.Now.ToString() + "\r\n" + "Message : " + ex.Message + Environment.NewLine + "Source : " + ex.Source + Environment.NewLine + "StackTrace : " + ex.StackTrace + Environment.NewLine + "Inner Exception : " + ex.InnerException + Environment.NewLine + Environment.NewLine + "Log verisi mail olarak gönderilemedi." + Environment.NewLine + Environment.NewLine);
             }
             catch
             { }
@@ -23,7 +23,7 @@ namespace log4DB
         {
             try
             {
-                m.LogApplicationError("+++++++++++++++ log4DB - +++++++++++++++" + DateTime.Now.ToString() + "\r\n" + "Message : " + ex.Message + Environment.NewLine + "Source : " + ex.Source + Environment.NewLine + "StackTrace : " + ex.StackTrace + Environment.NewLine + "Inner Exception : " + ex.InnerException + Environment.NewLine + Environment.NewLine + "Log verisi veritabanına kayıt edilemedi. ");
+                m.LogApplicationError("+++++++ log4DB +++++++" + DateTime.Now.ToString() + "\r\n" + "Message : " + ex.Message + Environment.NewLine + "Source : " + ex.Source + Environment.NewLine + "StackTrace : " + ex.StackTrace + Environment.NewLine + "Inner Exception : " + ex.InnerException + Environment.NewLine + Environment.NewLine + "Log verisi veritabanına kayıt edilemedi. ");
             }
             catch
             { }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -99,6 +100,11 @@ namespace log4DB
                 cmd.Connection.Open();
                 returnValue = cmd.ExecuteNonQuery();
             }
+            catch(Exception ex)
+            {
+                MailLogger m = new MailLogger();
+                m.LogException(ex);
+            }
             finally
             { cmd.Connection.Close(); in_parameters.Clear(); }
 
@@ -117,6 +123,7 @@ namespace log4DB
                 cmd.Connection.Open();
                 returnValue = cmd.ExecuteScalar();
             }
+            catch { }
             finally
             { cmd.Connection.Close(); in_parameters.Clear(); }
 
@@ -140,6 +147,7 @@ namespace log4DB
                 returnValue = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 /* Method kullanıldıktan sonra datareader nesnesi close methodu kapatılmalı. */
             }
+            catch { }
             finally
             { in_parameters.Clear(); }
 
@@ -166,6 +174,7 @@ namespace log4DB
                 else
                     da.Fill(returnValue, datatableName);
             }
+            catch { }
             finally
             { da.SelectCommand.Connection.Close(); in_parameters.Clear(); }
 
@@ -199,6 +208,7 @@ namespace log4DB
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
             }
+            catch { }
             finally
             { cmd.Connection.Close(); in_parameters.Clear(); }
         }
